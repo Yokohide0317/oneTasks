@@ -14,6 +14,5 @@ if [ ! -d ${SYNC_DIR} ]; then
     mkdir ${SYNC_DIR}
 fi
 
-
 touch ${SYNC_DIR}/setupTest.txt
 onedrive --synchronize --single-directory ${SYNC_DIR}
