@@ -14,5 +14,18 @@ if [ ! -d ${SYNC_DIR} ]; then
     mkdir ${SYNC_DIR}
 fi
 
-touch ${SYNC_DIR}/setupTest.txt
+# 作業Dir
+if [ ! -d "./working" ]; then
+    mkdir "./working"
+fi
+
+
+echo "一回目の同期中...数分かかります。"
+onedrive --synchronize --single-directory ${SYNC_DIR}
+
+echo "作業用ディレクトリを作成"
+touch ${ONEDRIVE_PATH}/${SYNC_DIR}/setupTest.txt
+mkdir ${ONEDRIVE_PATH}/${SYNC_DIR}/input
+mkdir ${ONEDRIVE_PATH}/${SYNC_DIR}/output
+echo "Uploading..."
 onedrive --synchronize --single-directory ${SYNC_DIR}
